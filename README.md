@@ -22,7 +22,7 @@ This project covers:
 
 ```bash
 git clone <repo_url>
-cd <directory>
+cd <directory >
 
 bundle install
 
