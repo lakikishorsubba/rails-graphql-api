@@ -7,9 +7,14 @@ module Mutations
       type Types::PostType, null: false
 
       def resolve(id:)
-        post = ::Post.find(id)
-        post.destroy!
-        post
+        post = ::Post.find_by(id: id)
+
+       if post # truthy value
+          post.destroy!
+          post
+       else
+          raise ::NotFoundError, "Post with id #{id} not found"
+       end
       end
     end
   end
