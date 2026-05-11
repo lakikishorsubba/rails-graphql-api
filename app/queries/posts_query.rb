@@ -1,8 +1,8 @@
-class PostQuery < BaseQuery
+class PostsQuery < BaseQuery
   attr_accessor :title, :body, :status, :author_id
   def initialize(params: {}, skip: 0)
     super # inherit variable from super class
-    @staus = params[:status] # instance variable
+    @status = params[:status] # instance variable
     @title = params[:title]
     @author_id = params[:author_id]
     @body = params[:body]
