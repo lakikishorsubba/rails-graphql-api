@@ -13,6 +13,7 @@ This project covers:
 - GraphQL Schema Structure
 - Rails + GraphQL Request Flow
 - Pagination using Relay-style Cursor Connection (graphql-ruby built-in)
+- Conditional filtering.
 - Custom error handling. 
 
 ## Tech Stack
