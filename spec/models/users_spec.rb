@@ -1,6 +1,7 @@
-Rspec.describe User, type: :model do
+RSpec.describe User, type: :model do
   # rspec test cases goes here
-  id "test" do
-    expect().do eq
+  it "user to be valid" do
+    user = create(:user)
+    expect(user).to be_valid
   end
 end

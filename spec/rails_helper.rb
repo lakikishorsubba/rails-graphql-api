@@ -35,7 +35,7 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
-  config.inclde FactoryBot::Syntax::Methods # include all those method like create,update etc in every test
+  config.include FactoryBot::Syntax::Methods # include all those method like create,update etc in every test
 
 
 

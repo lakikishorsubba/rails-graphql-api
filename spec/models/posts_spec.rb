@@ -1,5 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Posts, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Post, type: :model do
+  it "post to be valid" do
+    post  = create(:post)
+    expect(post).to be_valid
+  end
 end
