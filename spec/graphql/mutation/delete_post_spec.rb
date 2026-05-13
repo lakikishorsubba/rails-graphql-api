@@ -16,7 +16,7 @@ RSpec.describe "DeletePost Mutation", type: :request do
 
   context "when authenticated as a different user" do
     it "returns unauthorized errors" do
-      graphql_requrst(mutation, user: other_user)
+      graphql_request(mutation, user: other_user)
       expect(graphql_errors).to be_present
       expect(graphql_error.first["message"]).to eq("Unauthorized")
     end
