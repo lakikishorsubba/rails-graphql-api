@@ -14,12 +14,14 @@ RSpec.describe "DeletePost Mutation", type: :request do
     )
   end
 
-context "when authenticated as post owner" do
-  it "delete post successully" do
-    graphql_request(mutation, user: user)
-    expect(response).to have_http_status(:ok)
+
+
+  context "when authenticated as post owner" do
+    it "delete post successully" do
+      graphql_request(mutation, user: user)
+      expect(response).to have_http_status(:ok)
+    end
   end
-end
 
   context "when not authorized" do
     it "returns unauthorized" do
