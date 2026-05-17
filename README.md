@@ -15,7 +15,7 @@ This project covers:
 - Pagination using Relay-style Cursor Connection (graphql-ruby built-in)
 - Conditional filtering using Query Object Pattern (PostsQuery < BaseQuery): ensure reusable, build query object and execute at once, scalable etc.
 - Custom error handling. 
-- Rspec test using supported gem factory bot and faker . 
+- Rspec test using supported gem factory bot and faker. 
 
 ## Tech Stack
 
