@@ -20,7 +20,7 @@ This project covers:
 
 - Ruby on Rails (API)
 - PostgreSQL
-- GraphQLdefault: &default
+- GraphQL
 
 
 ## Getting Started
