@@ -31,7 +31,10 @@ module Resolvers
       # end
 
       def resolve(**args)
-        ::PostsQuery.new(params: args, skip: args[:skip]).run
+        local = ::PostsQuery.new(params: args, skip: args[:skip]).run.to_a
+        external = ::PostFaradayServices.new.fetch_all
+
+        local + external
       end
     end
   end
