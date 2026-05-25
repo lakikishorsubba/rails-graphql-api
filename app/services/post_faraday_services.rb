@@ -12,4 +12,14 @@ class PostFaradayServices # class responsible for api request.
       faraday.adapter  Faraday.default_adapter
     end
   end
+
+  def fetch_all
+    response = @connection.get("/post")
+    JSON.parse(response.body)
+  end
+
+  def fetch_one(id)
+    response = @connection.get("/post/#{id}")
+    JSON.parse(response.body)
+  end
 end
