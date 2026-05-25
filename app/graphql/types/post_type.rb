@@ -7,6 +7,7 @@ module Types
     field :status, Types::PostStatusType, null: false
 
     def author
+      return nil if object.user_id.nil?
       dataloader.with(::Sources::RecordSource, ::User).load(object.user_id)
     end
   end
