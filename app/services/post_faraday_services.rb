@@ -14,7 +14,7 @@ class PostFaradayServices # class responsible for api request.
   end
 
   def fetch_all
-    response = @connection.get("/post")
+    response = @connection.get("/post") # apped to base url
     JSON.parse(response.body)
   end
 
