@@ -16,6 +16,8 @@ This project covers:
 - Custom error handling. 
 - Rspec test using supported gem factory bot and faker. 
 
+- Farady: HTTP request to get random post from external API.
+
 ## Tech Stack
 
 - Ruby on Rails (API)
