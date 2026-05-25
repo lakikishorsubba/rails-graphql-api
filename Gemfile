@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem "graphql"
 gem "devise"
 gem "devise-jwt"
+gem "faraday"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.3"
