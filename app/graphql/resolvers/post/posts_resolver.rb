@@ -31,10 +31,27 @@ module Resolvers
       # end
 
       def resolve(**args)
-        local = ::PostsQuery.new(params: args, skip: args[:skip]).run.to_a
-        external = ::PostFaradayServices.new.fetch_all
+        local        = ::PostsQuery.new(params: args, skip: args[:skip]).run.to_a
+        external     = fetch_external_posts
+        local_titles = local.map { |p| p.title.to_s.downcase }.to_set
+        unique_external = external.reject { |p| local_titles.include?(p.title.to_s.downcase) }
 
-        local + external
+
+        local + unique_external
+      end
+
+      private
+      def fetch_external_posts
+        ::PostFaradayServices.new.fetch_all.map do |data|
+          post            = ::Post.new(title: data["title"], body: data["body"], status: :draft)
+          post.id         = data["id"].to_i
+          post.created_at = 1.year.from_now
+          post.updated_at = post.created_at
+          post
+        end
+      rescue ::Faraday::Error => e
+        Rails.logger.warn("[PostsResolver] API down: #{e.message}")
+        []
       end
     end
   end
