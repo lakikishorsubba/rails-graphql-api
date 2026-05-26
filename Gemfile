@@ -7,6 +7,7 @@ gem "faraday"
 gem "faraday-retry"
 gem "dotenv-rails"
 gem "aasm"
+gem "rack-attack"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.3"
 # Use postgresql as the database for Active Record
