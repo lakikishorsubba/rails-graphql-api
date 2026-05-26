@@ -19,6 +19,9 @@ This project covers:
 
 - Farady: HTTP request to get random post from external API.
 
+## Rate Limiting 
+API endpoints are protected with `rack-attack`: login is limited to 5 attempts per IP per minute, GraphQL to 100 requests per IP per minute, and known hacking tools are blocked entirely.
+
 ## Find this base url, for convention i have kept it in the .env
 BASE_URL = "https://jsonplaceholder.typicode.com"
 
