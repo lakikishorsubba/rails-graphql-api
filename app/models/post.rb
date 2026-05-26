@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   enum :status, { draft: 0, published: 1 }
   # open the aasm block, direct access to column status using symbol
   aasm(column: :status, enum: true, whiny_persistence: true) do # aasm is a method and passing arguement to it
-    # state defines the possible valuesA
+    # state defines the possible values
     state :draft, initial: true # calling state method with arguement. Can do: state(:draft, initial: true)
     state :published
 
