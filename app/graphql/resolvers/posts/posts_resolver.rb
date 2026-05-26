@@ -1,5 +1,5 @@
 module Resolvers
-  module Post
+  module Posts
     class PostsResolver < Resolvers::BaseResolver
       # return type
       type Types::PostType.connection_type, null: false
@@ -33,7 +33,7 @@ module Resolvers
       # end
 
       def resolve(**args) # combines all arguement into ruby hash, whaterver this function returns it gets paginated
-        local_posts  = ::PostsQuery.new(params: args).run.to_a # pss params as args hash
+        local_posts  = PostsQuery.new(params: args).run.to_a # pss params as args hash
         external_posts = faraday_posts
 
         local_posts + external_posts
@@ -43,9 +43,9 @@ module Resolvers
       # actual external post fetch.
       def faraday_posts
         # blocks that can be call or used later in anotehr func
-        ::PostFaradayServices.new.fetch_all.map do |item| # .iterate over each array of hash
+        PostsFaradayServices.new.fetch_all.map do |item| # .iterate over each array of hash
           # iterate over each and create new unsave post with clear query fields
-          post = ::Post.new( # keyword arguement
+          post = Post.new( # keyword arguement
             id: item["id"],
             title: item["title"], # reads the hash value and assign, same as ruby hash access
             body: item["body"],

@@ -1,4 +1,4 @@
-class PostFaradayServices # class responsible for api request.
+class PostsFaradayServices # class responsible for api request.
   # constant variable: base url
   BASE_URL = "https://jsonplaceholder.typicode.com"
 

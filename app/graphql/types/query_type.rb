@@ -19,7 +19,7 @@ module Types
     end
 
     # get post
-    field :get_posts, resolver: Resolvers::Post::PostsResolver
-    field :get_post, resolver: Resolvers::Post::PostResolver
+    field :get_posts, resolver: Resolvers::Posts::PostsResolver
+    field :get_post, resolver: Resolvers::Posts::PostResolver
   end
 end

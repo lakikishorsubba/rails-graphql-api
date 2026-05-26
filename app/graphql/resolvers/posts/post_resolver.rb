@@ -1,5 +1,5 @@
 module Resolvers
-  module Post
+  module Posts
     class PostResolver < Resolvers::BaseResolver
       argument :id, ID, required: true
       type Types::PostType, null: false
