@@ -14,7 +14,8 @@ This project covers:
 - Pagination using Relay-style Cursor Connection (graphql-ruby built-in)
 - Conditional filtering using Query Object Pattern (PostsQuery < BaseQuery): ensure reusable, build query object and execute at once, scalable etc.
 - Custom error handling. 
-- Rspec test using supported gem factory bot and faker. 
+- Rspec test using supported gem factory bot and faker.
+- AASM gem for smooth transitions in between enum post status.
 
 - Farady: HTTP request to get random post from external API.
 
