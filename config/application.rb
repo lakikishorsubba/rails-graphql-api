@@ -22,6 +22,7 @@ Bundler.require(*Rails.groups)
 
 module RailsGraphql
   class Application < Rails::Application
+    config.middleware.use(Rack::Attack) # config object, middlware and use is a method
     config.active_record.query_log_tags_enabled = true
     config.active_record.query_log_tags = [
       # Rails query log tags:
