@@ -1,7 +1,9 @@
 module Resolvers
   module Post
     class PostsResolver < Resolvers::BaseResolver
+      # return type
       type Types::PostType.connection_type, null: false
+      # field arguement that client can pass in the query or filtering
       argument :status, Types::PostStatusType, required: false
       argument :author_id, ID, required: false
       argument :title, String, required: false
@@ -30,28 +32,31 @@ module Resolvers
       #   posts
       # end
 
-      def resolve(**args)
-        local        = ::PostsQuery.new(params: args, skip: args[:skip]).run.to_a
-        external     = fetch_external_posts
-        local_titles = local.map { |p| p.title.to_s.downcase }.to_set
-        unique_external = external.reject { |p| local_titles.include?(p.title.to_s.downcase) }
+      def resolve(**args) # combines all arguement into ruby hash, whaterver this function returns it gets paginated
+        local_posts  = ::PostQuery.new(prams: args).run.to_a # pss params as args hash
+        external_posts = faraday_posts
 
-
-        local + unique_external
+        local_posts + external_posts
       end
 
       private
-      def fetch_external_posts
-        ::PostFaradayServices.new.fetch_all.map do |data|
-          post            = ::Post.new(title: data["title"], body: data["body"], status: :draft)
-          post.id         = data["id"].to_i
-          post.created_at = 1.year.from_now
-          post.updated_at = post.created_at
+      # actual external post fetch.
+      def faraday_posts
+        # blocks that can be call or used later in anotehr func
+        ::PostFaradayServices.new.fetch_all.map do |item| # .iterate over each array of hash
+          # iterate over each and create new unsave post with clear query fields
+          post = Post.new( # keyword arguement
+            id: item["id"],
+            title: item["title"], # reads the hash value and assign, same as ruby hash access
+            body: item["body"],
+            status: :published,
+            created_at: 1.months.from_now,
+            updated_at: 1.months.from_now
+          )
           post
         end
-      rescue ::Faraday::Error => e
-        Rails.logger.warn("[PostsResolver] API down: #{e.message}")
-        []
+      rescue Faraday::Error =>e
+        Rails.logger.warn("Faraday is down: #{e}")
       end
     end
   end
