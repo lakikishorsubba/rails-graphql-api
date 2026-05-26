@@ -18,6 +18,9 @@ This project covers:
 
 - Farady: HTTP request to get random post from external API.
 
+## Find this base url, for convention i have kept it in the .env
+BASE_URL = "https://jsonplaceholder.typicode.com"
+
 ## Tech Stack
 
 - Ruby on Rails (API)

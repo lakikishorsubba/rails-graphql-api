@@ -5,6 +5,7 @@ gem "devise"
 gem "devise-jwt"
 gem "faraday"
 gem "faraday-retry"
+gem "dotenv-rails"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.3"
 # Use postgresql as the database for Active Record

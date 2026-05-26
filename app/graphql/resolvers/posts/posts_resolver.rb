@@ -57,6 +57,7 @@ module Resolvers
         end
       rescue Faraday::Error =>e
         Rails.logger.warn("Faraday is down: #{e}")
+        # or simply raise e
       end
     end
   end
