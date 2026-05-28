@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rails Semantic Color Palette</title>
+  <style>
+    body {
+      background: #1e1e2e;
+      color: #f8f8f2;
+      font-family: Inter, Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 42px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #282a36;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .swatch {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.15);
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .example {
+      font-size: 22px;
+      font-family: 'Fira Code', monospace;
+      margin: 16px 0;
+      font-weight: 600;
+    }
+
+    .hex {
+      font-family: monospace;
+      opacity: 0.8;
+      font-size: 15px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ruby on Rails Semantic Color Palette</h1>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#FFB86C"></div>
+        <div>
+          <div class="title">Class / Module</div>
+          <div class="hex">#FFB86C</div>
+        </div>
+      </div>
+      <div class="example" style="color:#FFB86C">SubmitOrderJob</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#50FA7B"></div>
+        <div>
+          <div class="title">Method / Function</div>
+          <div class="hex">#50FA7B</div>
+        </div>
+      </div>
+      <div class="example" style="color:#50FA7B">perform</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#8BE9FD"></div>
+        <div>
+          <div class="title">Parameters / Variables</div>
+          <div class="hex">#8BE9FD</div>
+        </div>
+      </div>
+      <div class="example" style="color:#8BE9FD">args</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#BD93F9"></div>
+        <div>
+          <div class="title">Constants</div>
+          <div class="hex">#BD93F9</div>
+        </div>
+      </div>
+      <div class="example" style="color:#BD93F9">ArgumentError</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#FF79C6"></div>
+        <div>
+          <div class="title">Keywords</div>
+          <div class="hex">#FF79C6</div>
+        </div>
+      </div>
+      <div class="example" style="color:#FF79C6">class def if</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#FF5555"></div>
+        <div>
+          <div class="title">Symbols</div>
+          <div class="hex">#FF5555</div>
+        </div>
+      </div>
+      <div class="example" style="color:#FF5555">:order_id</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#F1FA8C"></div>
+        <div>
+          <div class="title">Strings</div>
+          <div class="hex">#F1FA8C</div>
+        </div>
+      </div>
+      <div class="example" style="color:#F1FA8C">"MsdOrder"</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#6272A4"></div>
+        <div>
+          <div class="title">Comments</div>
+          <div class="hex">#6272A4</div>
+        </div>
+      </div>
+      <div class="example" style="color:#6272A4"># TODO</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#FFAA70"></div>
+        <div>
+          <div class="title">Numbers</div>
+          <div class="hex">#FFAA70</div>
+        </div>
+      </div>
+      <div class="example" style="color:#FFAA70">123</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#6BCBFF"></div>
+        <div>
+          <div class="title">Instance Variables</div>
+          <div class="hex">#6BCBFF</div>
+        </div>
+      </div>
+      <div class="example" style="color:#6BCBFF">@order</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#FF4444"></div>
+        <div>
+          <div class="title">Global Variables</div>
+          <div class="hex">#FF4444</div>
+        </div>
+      </div>
+      <div class="example" style="color:#FF4444">$redis</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#FFE082"></div>
+        <div>
+          <div class="title">Hash Keys</div>
+          <div class="hex">#FFE082</div>
+        </div>
+      </div>
+      <div class="example" style="color:#FFE082">"use_case"</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#00E676"></div>
+        <div>
+          <div class="title">Rails DSL</div>
+          <div class="hex">#00E676</div>
+        </div>
+      </div>
+      <div class="example" style="color:#00E676">queue_as belongs_to</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="swatch" style="background:#F8F8F2"></div>
+        <div>
+          <div class="title">Operators</div>
+          <div class="hex">#F8F8F2</div>
+        </div>
+      </div>
+      <div class="example" style="color:#F8F8F2">= => &&</div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Optimized for Ruby on Rails semantic syntax highlighting in VS Code.
+  </div>
+</body>
+</html>
