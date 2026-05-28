@@ -25,6 +25,8 @@ API endpoints are protected with `rack-attack`: login is limited to 5 attempts p
 ## Error Tracking 
 Configured sentry to track the errors or any issues
 
+## Scheduling.
+Cron jon: solid queue to sync the external post into db.
 ## Find this base url, for convention i have kept it in the .env
 BASE_URL = "https://jsonplaceholder.typicode.com"
 
