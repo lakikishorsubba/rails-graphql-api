@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   include AASM # bring all the aasm method as instance here
   belongs_to :user
+
+  # puts :user.object_id, just to check the Symbol
   validates :status, presence: true
 
   enum :status, { draft: 0, published: 1 }
