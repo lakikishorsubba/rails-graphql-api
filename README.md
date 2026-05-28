@@ -1,4 +1,4 @@
-# Rails + GraphQL Fundamentals
+# Rails + GraphQL Fundamentals Fullstack
 GraphQL + Rails is a very interesting and powerful tech stack combination to learn
 A simple but complete beginner-friendly project for learning GraphQL with Ruby on Rails using
 This project covers:
