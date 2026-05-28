@@ -17,7 +17,11 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jbuilder"
+gem "jbuilder", "~> 2.15"
+
+gem "importmap-rails", "~> 2.2"
+gem "turbo-rails", "~> 2.0"
+gem "stimulus-rails", "~> 1.3"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -69,6 +73,10 @@ group :development, :test do
   gem "brakeman", require: false
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-  gem "rubocop-rails-omakase", require: false
+  # gem "rubocop-rails-omakase", require: false
   gem "ruby-lsp"
 end
+
+gem "propshaft", "~> 1.3"
+
+gem "pagy", "~> 43.5"

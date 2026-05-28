@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsGraphql | Modern UI</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <nav>
+      <div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+        <%= link_to "RailsGraphql", root_path, class: "brand", style: "font-size: 1.5rem; color: var(--secondary);" %>
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+          <% if user_signed_in? %>
+            <span style="color: var(--text-muted);">Hi, <%= current_user.email %></span>
+            <%= link_to "Posts", posts_path %>
+            <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-outline" %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path %>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <% flash.each do |type, msg| %>
+        <div class="flash <%= type %>">
+          <%= msg %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+  <h1>Explore Posts</h1>
+  <%= link_to "Create New Post", new_post_path, class: "btn btn-primary" %>
+</div>
+
+<div id="posts">
+  <%= render @posts %>
+</div>

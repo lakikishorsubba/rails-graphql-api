@@ -1,20 +1,27 @@
 class Users::SessionsController < Devise::SessionsController
-  respond_to :json
+  respond_to :html, :json
 
   private
 
-  def respond_with(resources, _opts = {})
-    render json: {
-      messgae: "Logged in Successfully",
-      user: {
-        id: resources.id,
-        email: resources.email
-      }
-    }, status: :ok
+  def respond_with(resource, _opts = {})
+    respond_to do |format|
+      format.html { super }
+      format.json do
+        render json: {
+          message: "Logged in Successfully",
+          user: {
+            id: resource.id,
+            email: resource.email
+          }
+        }, status: :ok
+      end
+    end
   end
 
-  # more redable: how arguement is passed in class method
   def respond_to_on_destroy
-    self.render(json: { message: "Logged out successfully" }, status: :ok)
+    respond_to do |format|
+      format.html { super }
+      format.json { render json: { message: "Logged out successfully" }, status: :ok }
+    end
   end
 end

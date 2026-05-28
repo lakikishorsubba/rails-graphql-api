@@ -11,7 +11,7 @@
 Devise.setup do |config|
   require "devise/orm/active_record"
   config.skip_session_storage = [ :http_auth, :token_auth ]
-  config.navigational_formats = [ "*/*", :json ]
+  config.navigational_formats = ["*/*", :html, :turbo_stream, :json]
   config.sign_out_via = :delete
 
   config.jwt do |jwt|

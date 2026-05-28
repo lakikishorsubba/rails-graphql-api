@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class GraphqlController < ApplicationController
+  skip_before_action :verify_authenticity_token
   # i think no need before_action :authentication_user because its already applied in the application controller
   def execute
     variables = prepare_variables(params[:variables])
