@@ -1,13 +1,17 @@
 module Rack
   class Attack
-    throttle("login/ip", limit: 5, period: 1.minutes) do |req| # throttle rack attack method to take arguement
-      if req.path == "/users/sign_in" && req.post?
+    GRAPHQL_ENDPOINT = "/graphql".freeze
+    LOGIN_ENDPOINT = "users/sign_in".freeze
+    LOGIN_IP_lIMIT = Rails.env.test? ? 100 : 5
+    GRAPHQL_IP_LIMIT = Rails.env.test? ? 100 : 5
+    throttle("login/ip", limit: LOGIN_IP_lIMIT, period: 1.minutes) do |req| # throttle rack attack method to take arguement
+      if req.path == LOGIN_ENDPOINT && req.post?
         req.ip
       end
     end
 
-    throttle("graphql/ip", limit: 5, period: 1.minutes) do |req|
-      if req.path == "/graphql" && req.post?
+    throttle("graphql/ip", limit: GRAPHQL_IP_LIMIT, period: 1.minutes) do |req|
+      if req.path == GRAPHQL_ENDPOINT && req.post?
         req.ip
       end
     end
