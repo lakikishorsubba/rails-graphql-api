@@ -22,6 +22,9 @@ This project covers:
 ## Rate Limiting 
 API endpoints are protected with `rack-attack`: login is limited to 5 attempts per IP per minute, GraphQL to 100 requests per IP per minute, and known hacking tools are blocked entirely.
 
+## Error Tracking 
+Configured sentry to track the errors or any issues
+
 ## Find this base url, for convention i have kept it in the .env
 BASE_URL = "https://jsonplaceholder.typicode.com"
 
