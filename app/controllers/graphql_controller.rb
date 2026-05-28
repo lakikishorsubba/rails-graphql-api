@@ -13,6 +13,7 @@ class GraphqlController < ApplicationController
     result = RailsGraphqlSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
   rescue StandardError => e
+    Sentry.capture_exception(e)   # send to Sentry first
     raise e unless Rails.env.development?
     handle_error_in_development(e)
   end
