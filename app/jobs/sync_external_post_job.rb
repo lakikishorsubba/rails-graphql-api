@@ -3,6 +3,7 @@ class SyncExternalPostJob < ApplicationJob
   queue_as :default
 
   def perform
+    Rails.logger.info("[SyncExternalPostsJob] starting.....")
     PostsFaradayServices.new.fetch_all.each do |data|
       Post.find_or_create_by(title: data["title"].to_s.strip) do |post|
         post.body = data["body"].to_s.strip
@@ -10,6 +11,7 @@ class SyncExternalPostJob < ApplicationJob
         post.user_id = sync_user.id
       end
     end
+    Rails.logger.info("[SyncExternalPostsJob] done")
   end
 
   private
