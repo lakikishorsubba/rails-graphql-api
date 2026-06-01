@@ -11,6 +11,7 @@ gem "rack-attack"
 gem "sentry-rails"
 gem "sentry-ruby"
 gem "secure_headers"
+gem "rack-cors"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.3"
 # Use postgresql as the database for Active Record
